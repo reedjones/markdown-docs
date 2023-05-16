@@ -1,5 +1,5 @@
-name: Python Markdown Documentation
-description: Creates markdown files based on python docstrings
+name: Python Markdown Docs 2
+description: Creates markdown files based on python docstrings, fixed issue with the other one 
 inputs:
   src_path:
     description: "Path to the source folder containing python code"
