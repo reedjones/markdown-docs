@@ -1,7 +1,9 @@
-FROM python:3
+FROM python:3.9
+RUN pip install --upgrade pip
+RUN pip install -Iv -U pyyaml==5.3.1
+RUN pip install -Iv -U Jinja2==3.1.2
+RUN pip install --force markupsafe==2.0.1
 
-RUN pip install -Iv pyyaml==5.3.1
-RUN pip install -Iv jinja2
 COPY ./ /generatedocs
 
 ENTRYPOINT ["python", "/generatedocs/src/main.py"]
