@@ -25,8 +25,7 @@ class Tag(object):
             return None
         
         if len(parts) <= self.maxsplit:
-            raise Exception("Error parsing docstring for {} at {}"
-                .format(context, line))
+            raise Exception("Error parsing docstring for {}".format(string))
 
         # Don't need a dict for 1D tags
         if len(parts) == 2:
