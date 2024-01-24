@@ -29,13 +29,20 @@ if __name__ == '__main__':
     data = get_data(classes, functions, output)
     readme_template = utils.load_template("../templates/readme.md", True)
     md = readme_template.render(data)
-    with open(os.path.join(output, 'README.md'), 'w') as file:
-        file.write(md)
+    try:
+        with open(os.path.join(output, 'README.md'), 'w',  encoding="utf8", errors='ignore') as file:
+            file.write(md)
+    except Exception as e:
+        print(f"Error writing file: {e}")
 
     # Create file for each class
     class_template = utils.load_template("../templates/class.md", True)
     for class_data in data['classes']:
         md = class_template.render(class_data)
         file_path = os.path.join(output, class_data['name'] + '.md')
-        with open(file_path, 'w') as file:
-            file.write(md)
+        try:
+            with open(file_path, 'w',  encoding="utf8", errors='ignore') as file:
+                file.write(md)
+        except Exception as e:
+            print(f"Error writing file: {e}")
+
